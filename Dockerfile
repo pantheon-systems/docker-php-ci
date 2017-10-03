@@ -1,4 +1,4 @@
-# Use an official Python runtime as a parent image
+# Use an official Drupal PHP runtime image as a parent image
 FROM drupaldocker/php:7.1-cli
 
 # Set the working directory to /php-ci
