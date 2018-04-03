@@ -13,6 +13,6 @@ RUN apt-get install -y ruby
 RUN gem install circle-cli
 RUN composer global require -n "hirak/prestissimo:^0.3"
 RUN git clone https://github.com/pantheon-systems/terminus.git ~/terminus
-RUN cd ~/terminus && composer install
+RUN cd ~/terminus && git checkout 1.8.0 && composer install
 RUN ln -s ~/terminus/bin/terminus /usr/local/bin/terminus
 
