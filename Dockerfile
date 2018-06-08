@@ -16,3 +16,5 @@ RUN git clone https://github.com/pantheon-systems/terminus.git ~/terminus
 RUN cd ~/terminus && git checkout 1.8.0 && composer install
 RUN ln -s ~/terminus/bin/terminus /usr/local/bin/terminus
 
+# Add bats for use in testing
+RUN git clone https://github.com/sstephenson/bats.git; bats/install.sh /usr/local/bin
