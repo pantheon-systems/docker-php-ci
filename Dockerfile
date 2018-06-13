@@ -15,12 +15,3 @@ RUN composer global require -n "hirak/prestissimo:^0.3"
 RUN git clone https://github.com/pantheon-systems/terminus.git ~/terminus
 RUN cd ~/terminus && git checkout 1.8.0 && composer install
 RUN ln -s ~/terminus/bin/terminus /usr/local/bin/terminus
-
-# Add phpcs for use in checking code style
-RUN mkdir ~/phpcs && cd ~/phpcs && COMPOSER_BIN_DIR=/usr/local/bin composer require squizlabs/php_codesniffer:^2.7
-
-# Add in a global phpunit for unit testing
-RUN mkdir ~/phpunit && cd ~/phpunit && COMPOSER_BIN_DIR=/usr/local/bin composer require phpunit/phpunit:^6
-
-# Add bats for use in testing
-RUN git clone https://github.com/sstephenson/bats.git; bats/install.sh /usr/local
