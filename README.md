@@ -12,7 +12,7 @@ In CircleCI 2.0:
 ```
 ## Image Contents
 
-- [PHP 7.1](https://github.com/drupal-docker/php/tree/master/7.1)
+- [PHP 7.2](https://github.com/drupal-docker/php/tree/master/7.2)
 - [Terminus](https://github.com/pantheon-systems/terminus)
 - [circle-cli](https://github.com/circle-cli/circle-cli) test tool
 
