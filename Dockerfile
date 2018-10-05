@@ -1,5 +1,5 @@
 # Use an official Drupal PHP runtime image as a parent image
-FROM drupaldocker/php:7.1-cli
+FROM drupaldocker/php:7.2-cli
 
 # Set the working directory to /php-ci
 WORKDIR /php-ci
@@ -13,5 +13,5 @@ RUN apt-get install -y ruby
 RUN gem install circle-cli
 RUN composer global require -n "hirak/prestissimo:^0.3"
 RUN git clone https://github.com/pantheon-systems/terminus.git ~/terminus
-RUN cd ~/terminus && git checkout 1.8.0 && composer install
+RUN cd ~/terminus && git checkout 1.9.0 && composer install
 RUN ln -s ~/terminus/bin/terminus /usr/local/bin/terminus
