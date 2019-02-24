@@ -18,3 +18,6 @@ RUN composer global require -n "hirak/prestissimo:^0.3"
 RUN git clone https://github.com/pantheon-systems/terminus.git ~/terminus
 RUN cd ~/terminus && git checkout 2.0.0 && composer install
 RUN ln -s ~/terminus/bin/terminus /usr/local/bin/terminus
+
+# Make a placeholder .bashrc
+RUN echo '# Bash configuration' >> /root/.bashrc
