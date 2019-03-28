@@ -13,6 +13,7 @@ RUN echo 'phar.readonly=off' > /usr/local/etc/php/conf.d/phar.ini
 # Collect the components we need for this image
 RUN apt-get update
 RUN apt-get install -y ruby
+RUN apt-get install -y hub
 RUN gem install circle-cli
 RUN composer global require -n "hirak/prestissimo:^0.3"
 RUN git clone https://github.com/pantheon-systems/terminus.git ~/terminus
