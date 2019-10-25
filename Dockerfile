@@ -23,9 +23,9 @@ RUN composer global require -n "hirak/prestissimo:^0.3"
 RUN curl -O https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar && php installer.phar install
 
 # Add Terminus plugins
-env TERMINUS_PLUGINS_DIR /usr/local/share/terminus-plugins
-RUN mkdir -p /usr/local/share/terminus-plugins
-RUN composer -n create-project --no-dev -d /usr/local/share/terminus-plugins pantheon-systems/terminus-clu-plugin:^1.0.1
+env TERMINUS_PLUGINS_DIR $HOME/.terminus/plugins
+RUN mkdir -p $HOME/.terminus/plugins
+RUN composer -n create-project --no-dev -d $HOME/.terminus/plugins pantheon-systems/terminus-clu-plugin:^1.0.1
 
 # Make a placeholder .bashrc
 RUN echo '# Bash configuration' >> /root/.bashrc
