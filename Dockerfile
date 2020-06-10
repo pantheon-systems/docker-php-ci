@@ -15,7 +15,8 @@ RUN apk add --no-cache --virtual ruby vim
 
 RUN curl -LO https://github.com/github/hub/releases/download/v2.10.0/hub-linux-amd64-2.10.0.tgz && tar xzvf hub-linux-amd64-2.10.0.tgz && ln -s /php-ci/hub-linux-amd64-2.10.0/bin/hub /usr/local/bin/hub
 
-RUN gem install circle-cli
+RUN curl -fLSs https://raw.githubusercontent.com/CircleCI-Public/circleci-cli/master/install.sh | DESTDIR=/usr/local/bin bash
+
 RUN composer global require -n "hirak/prestissimo:^0.3"
 
 # Add Terminus
