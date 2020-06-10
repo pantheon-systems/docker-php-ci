@@ -11,11 +11,11 @@ ADD . /php-ci
 RUN echo 'phar.readonly=off' > /usr/local/etc/php/conf.d/phar.ini
 
 # Collect the components we need for this image
-RUN apk add --no-cache --virtual ruby vim
+RUN apk add --no-cache --virtual ruby vim bash
 
 RUN curl -LO https://github.com/github/hub/releases/download/v2.10.0/hub-linux-amd64-2.10.0.tgz && tar xzvf hub-linux-amd64-2.10.0.tgz && ln -s /php-ci/hub-linux-amd64-2.10.0/bin/hub /usr/local/bin/hub
 
-RUN curl -fLSs https://raw.githubusercontent.com/CircleCI-Public/circleci-cli/master/install.sh | DESTDIR=/usr/local/bin /bin/sh
+RUN curl -fLSs https://raw.githubusercontent.com/CircleCI-Public/circleci-cli/master/install.sh | DESTDIR=/usr/local/bin /bin/bash
 
 RUN composer global require -n "hirak/prestissimo:^0.3"
 
