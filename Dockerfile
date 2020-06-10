@@ -1,5 +1,5 @@
 # Use an official Drupal PHP runtime image as a parent image
-FROM drupaldocker/php:7.3-cli
+FROM drupaldocker/php:7.3-cli-2.x
 
 # Set the working directory to /php-ci
 WORKDIR /php-ci
