@@ -32,4 +32,4 @@ RUN mkdir -p /root/.terminus/plugins
 RUN composer -n create-project --no-dev -d /root/.terminus/plugins pantheon-systems/terminus-clu-plugin:^1.0.1
 
 # Make a placeholder .bashrc
-RUN echo '# Bash configuration' >> /root/.bashrc
+RUN echo '### Bash configuration' >> /root/.bashrc
