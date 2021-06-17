@@ -5,14 +5,14 @@
 This is the source Dockerfile for the [pantheon-public/php-ci](https://quay.io/repository/pantheon-public/php-ci) docker image.
 
 ## Usage
-In CircleCI 2.0:
+In CircleCI 2.0/github actions
 ```
   docker:
-    - image: quay.io/pantheon-public/php-ci:2.x
+    - image: quay.io/pantheon-public/php-ci:v7.4
 ```
 ## Image Contents
 
-- [PHP 7.1](https://github.com/drupal-docker/php/tree/master/7.1)
+- [PHP 7.4](https://github.com/drupal-docker/php/tree/master/7.4)
 - [Terminus](https://github.com/pantheon-systems/terminus)
 - [circle-cli](https://github.com/circle-cli/circle-cli) test tool
 
