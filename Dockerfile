@@ -94,7 +94,8 @@ RUN apt-get update -y --fix-missing && apt-get install -y \
       pv \
       rsync \
       bash-completion \
-      ruby
+      ruby \
+      bash
 
 # Libraries for Imagemagick
 RUN apt-get update && apt-get install -y libmagick++-dev libmagickcore-dev libmagickwand-6-headers libmagickwand-dev --no-install-recommends \
@@ -211,3 +212,5 @@ RUN echo ${CODELINT_FIX} >> /root/.bashrc
 RUN mkdir /php-cgi
 
 WORKDIR /php-cgi
+
+ENTRYPOINT [ "/usr/local/bin/docker-php-entrypoint" ]
