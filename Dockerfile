@@ -1,6 +1,6 @@
 # Use an official Drupal PHP runtime image as a parent image
-FROM php:7.4-cli
-ARG PHP_VERSION=7.4
+FROM php:8.2-cli
+ARG PHP_VERSION=8.2
 ARG REPO_NAME=pantheon-systems/docker-php-ci
 ARG VCS_REF
 ARG ENV
@@ -78,7 +78,6 @@ RUN apt-get update -y --fix-missing && apt-get install -y \
       libgconf-2-4 \
       libxi6 \
       unzip \
-      google-chrome-stable \
       gvfs \
       pcscd \
       locales \
@@ -89,8 +88,6 @@ RUN apt-get update -y --fix-missing && apt-get install -y \
       unixodbc \
       unixodbc-dev \
       odbcinst \
-      msodbcsql17 \
-      mssql-tools \
       pv \
       rsync \
       bash-completion \
@@ -114,13 +111,6 @@ RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
 # PCOV pecl module allows code coverage details without xdebug
 
-RUN wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
-RUN unzip chromedriver_linux64.zip
-RUN mv chromedriver /usr/bin/chromedriver
-RUN chown root:root /usr/bin/chromedriver
-RUN chmod +x /usr/bin/chromedriver
-RUN wget https://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
-RUN mv selenium-server-standalone-3.9.1.jar /opt/selenium-server-standalone.jar
 RUN curl -fLSs https://circle.ci/cli | bash
 
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
@@ -197,10 +187,11 @@ RUN pecl bundle -d /usr/src/php/ext pdo_sqlsrv \
 RUN mkdir -p /opt
 
 WORKDIR /opt
-RUN git clone -b v3.0 https://github.com/pantheon-systems/terminus.git ./terminus
-RUN cd /opt/terminus && composer install \
-  && composer phar:build && composer phar:install && \
-  ln -s /usr/local/bin/t3 /usr/local/bin/terminus
+ENV TERMINUS_ALLOW_UNSUPPORTED_NEWER_PHP=1
+# Install terminus
+RUN curl -L https://github.com/pantheon-systems/terminus/releases/download/3.1.1/terminus.phar -o /usr/local/bin/terminus && \
+    chmod +x /usr/local/bin/terminus
+RUN terminus self:update
 
 RUN curl -LO https://github.com/github/hub/releases/download/v2.10.0/hub-linux-amd64-2.10.0.tgz && tar xzvf hub-linux-amd64-2.10.0.tgz && ln -s /php-ci/hub-linux-amd64-2.10.0/bin/hub /usr/local/bin/hub
 RUN gem install circle-cli
