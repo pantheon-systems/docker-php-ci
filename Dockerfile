@@ -181,7 +181,7 @@ RUN curl -L https://github.com/pantheon-systems/terminus/releases/download/3.1.1
     chmod +x /usr/local/bin/terminus
 RUN terminus self:update
 
-RUN curl -LO https://github.com/github/hub/releases/download/v2.10.0/hub-linux-amd64-2.10.0.tgz && tar xzvf hub-linux-amd64-2.10.0.tgz && ln -s /php-ci/hub-linux-amd64-2.10.0/bin/hub /usr/local/bin/hub
+RUN curl -LO https://github.com/github/hub/releases/download/v2.10.0/hub-linux-amd64-2.10.0.tgz && tar xzvf hub-linux-amd64-2.10.0.tgz && ln -s /opt/hub-linux-amd64-2.10.0/bin/hub /usr/local/bin/hub
 RUN gem install circle-cli
 # Make a placeholder .bashrc
 RUN echo '# Bash configuration' >> /root/.bashrc
