@@ -85,9 +85,6 @@ RUN apt-get update -y --fix-missing && apt-get install -y \
       gnupg \
       re2c \
       lcov \
-      unixodbc \
-      unixodbc-dev \
-      odbcinst \
       pv \
       rsync \
       bash-completion \
@@ -174,15 +171,6 @@ RUN pecl config-set php_ini /usr/local/etc/php/php.ini && \
 RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd
 # as of 2019-AUG-06 drupal redis module didn't work with redis 5
-
-
-## Install MSSQL php extension
-RUN pecl bundle -d /usr/src/php/ext sqlsrv \
-    && rm /usr/src/php/ext/sqlsrv-*.tgz \
-    && docker-php-ext-install sqlsrv
-RUN pecl bundle -d /usr/src/php/ext pdo_sqlsrv \
-    && rm /usr/src/php/ext/pdo_sqlsrv-*.tgz \
-    && docker-php-ext-install pdo_sqlsrv
 
 RUN mkdir -p /opt
 
