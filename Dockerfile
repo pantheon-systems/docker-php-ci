@@ -85,9 +85,6 @@ RUN apt-get update -y --fix-missing && apt-get install -y \
       gnupg \
       re2c \
       lcov \
-      unixodbc \
-      unixodbc-dev \
-      odbcinst \
       pv \
       rsync \
       bash-completion \
