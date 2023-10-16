@@ -12,9 +12,13 @@ In CircleCI 2.0:
 ```
 ## Image Contents
 
-- [PHP 7.1](https://github.com/drupal-docker/php/tree/master/7.1)
+- [PHP 7.3](https://github.com/drupal-docker/php/tree/master/7.3)
 - [Terminus](https://github.com/pantheon-systems/terminus)
 - [circle-cli](https://github.com/circle-cli/circle-cli) test tool
+
+## Branches
+- 4.x: Unsupported, some outdated versions, may still receive updates. Used for build-tools plugin testing.
+- Any other branch: Unsupported, unmaintained.
 
 Note that this image does not include any Terminus extensions. See [build-tools-ci image](https://github.com/pantheon-systems/docker-build-tools-ci) for a more complete Docker image pre-populated with a number of useful Terminus plugins. To test a Terminus plugin, use [pantheon-public/terminus-plugin-test](https://quay.io/repository/pantheon-public/terminus-plugin-test).
 
