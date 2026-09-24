@@ -1,12 +1,13 @@
+# Managed by github-terraform — do not edit manually
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: docker-php-ci
-  description: Auto-generated catalog info for pantheon-systems/docker-php-ci
+  name: "docker-php-ci"
+  description: "Dockerfile source for docker image pantheon-public/php-ci on quay.io"
   annotations:
-    backstage.io/techdocs-ref: dir:docs/
+    "backstage.io/techdocs-ref": "dir:docs/"
 spec:
-  type: tool
-  lifecycle: mature
-  owner: site
+  type: "tool"
+  lifecycle: "mature"
+  owner: "developer-experience"
