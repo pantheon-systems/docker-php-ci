@@ -20,7 +20,7 @@ pipeline:
   cancel_in_progress: false
   blocked_by_waiting_run: null
   approval_gate: null
-  current_state: "TODO(verify-on-deploy): the last Quay build (2026-02-23, DELENG-365 branch) is `expired` (never ran), and the [skip ci] commits on 4.x since 2026-09-24 started no build. Whether the trigger still builds is unknown"   # verified from the Quay build list 2026-11-10
+  current_state: "TODO(verify-on-deploy): the last Quay build (2026-02-23, DELENG-365 branch) is `expired` (never ran), the [skip ci] commits on 4.x since 2026-09-24 started no build, and pushing branch docs/DEVX-7892-deploy-contract (90cc0cf, 2026-11-10) started none within ~90 s. The trigger is probably dead; confirm on the next real merge"   # verified from the Quay build list 2026-11-10
 
 repo_properties:
   observed_at: 2026-11-10
@@ -146,7 +146,7 @@ Each branch is effectively a separate product:
 
 Feature branches get tags too (e.g. `lops-1850`, `add-catalog-info-20240910`).
 
-**Is the trigger still alive?** TODO(verify-on-deploy): the last Quay build (2026-02-23, a feature branch) shows `expired` (it never ran), and the github-terraform `[skip ci]` commits on `4.x` since 2026-09-24 started no build. Check the Quay build list after the next real merge.
+**Is the trigger still alive?** TODO(verify-on-deploy): the last Quay build (2026-02-23, a feature branch) shows `expired` (it never ran), the github-terraform `[skip ci]` commits on `4.x` since 2026-09-24 started no build, and pushing this contract's branch (`90cc0cf`, 2026-11-10) started none within about 90 seconds. It's probably dead; check the Quay build list after the next real merge.
 
 ## How to confirm it deployed
 
